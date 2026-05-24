@@ -1,0 +1,15 @@
+# Sistema Operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Configurações de IDEs (VS Code / WebStorm)
+.vscode/
+.idea/
+
+# Logs de erro do sistema
+*.log
+
+# Opcional: Se você futuramente usar pacotes do Node (npm)
+node_modules/
+dist/
