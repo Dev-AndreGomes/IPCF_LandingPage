@@ -1,4 +1,63 @@
 /* ==========================================================================
+   VARIABLES & PALETTE (IPCF BRANDING)
+   ========================================================================== */
+:root {
+  /* Brand Palette Extracted from Logo */
+  --primary-green: #327D5F;
+  --primary-dark: #1F4A39;
+  --secondary-green: #99B262;
+  --secondary-hover: #829A4E;
+  --accent-ochre: #D99B49;
+  --accent-light: rgba(217, 155, 73, 0.15);
+
+  /* Light Theme (Default) */
+  --bg-main: #FAFAF9;
+  --bg-card: #FFFFFF;
+  --bg-alt: #F3F4F1;
+  --bg-header: rgba(255, 255, 255, 0.93);
+  
+  --text-main: #2A3630;
+  --text-muted: #5C6E65;
+  --text-white: #FFFFFF;
+  
+  --border-color: #E2E8F0;
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 10px 25px rgba(50, 125, 95, 0.15);
+}
+
+/* Dark Theme Overrides (System Preference) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-main: #121815;
+    --bg-card: #1A231F;
+    --bg-alt: #161E1A;
+    --bg-header: rgba(26, 35, 31, 0.93);
+    
+    --text-main: #E5ECE8;
+    --text-muted: #A0B2A8;
+    
+    --border-color: #2A3831;
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* Manual Dark Theme Toggle Support Class */
+body.dark-theme {
+  --bg-main: #121815;
+  --bg-card: #1A231F;
+  --bg-alt: #161E1A;
+  --bg-header: rgba(26, 35, 31, 0.93);
+  
+  --text-main: #E5ECE8;
+  --text-muted: #A0B2A8;
+  
+  --border-color: #2A3831;
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
    RESET & BASE STYLES
    ========================================================================== */
 *, *::before, *::after {
@@ -10,8 +69,9 @@
 html {
   scroll-behavior: smooth;
   font-family: 'Montserrat', sans-serif;
-  color: #2D3732;
-  background-color: #FAFAF9;
+  color: var(--text-main);
+  background-color: var(--bg-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body {
@@ -35,7 +95,7 @@ a {
 .section-title {
   font-size: 32px;
   font-weight: 700;
-  color: #1E5A44;
+  color: var(--primary-green);
   text-align: center;
   margin-bottom: 12px;
   text-transform: uppercase;
@@ -47,14 +107,14 @@ a {
   display: block;
   width: 60px;
   height: 4px;
-  background-color: #8CB369;
+  background-color: var(--secondary-green);
   margin: 12px auto 0 auto;
   border-radius: 2px;
 }
 
 .section-subtitle {
   font-size: 16px;
-  color: #64748B;
+  color: var(--text-muted);
   text-align: center;
   max-width: 600px;
   margin: 0 auto 48px auto;
@@ -68,10 +128,11 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.93);
+  background-color: var(--bg-header);
   backdrop-filter: blur(10px);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow-sm);
   z-index: 1000;
+  transition: background-color 0.3s ease;
 }
 
 .navbar {
@@ -84,6 +145,7 @@ header {
 .nav-logo img {
   height: 250px;
   width: auto;
+  object-fit: contain;
 }
 
 .nav-links {
@@ -95,7 +157,7 @@ header {
 .nav-links a {
   font-size: 15px;
   font-weight: 600;
-  color: #2D3732;
+  color: var(--text-main);
   letter-spacing: 0.5px;
   padding: 8px 0;
   position: relative;
@@ -108,12 +170,12 @@ header {
   left: 0;
   width: 0;
   height: 2px;
-  background-color: #1E5A44;
+  background-color: var(--accent-ochre);
   transition: width 0.3s ease;
 }
 
 .nav-links a:hover {
-  color: #1E5A44;
+  color: var(--primary-green);
 }
 
 .nav-links a:hover::after {
@@ -158,21 +220,21 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(30, 90, 68, 0.82) 0%, rgba(45, 55, 50, 0.75) 100%);
+  background: linear-gradient(135deg, rgba(31, 74, 57, 0.88) 0%, rgba(18, 24, 21, 0.85) 100%);
   z-index: -1;
 }
 
 .hero-content {
   max-width: 850px;
   padding: 0 24px;
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 .hero-badge {
   display: inline-block;
-  background-color: rgba(140, 179, 105, 0.2);
-  border: 1px solid rgba(140, 179, 105, 0.4);
-  color: #8CB369;
+  background-color: rgba(217, 155, 73, 0.2);
+  border: 1px solid var(--accent-ochre);
+  color: var(--accent-ochre);
   padding: 8px 18px;
   border-radius: 50px;
   font-size: 13px;
@@ -190,7 +252,7 @@ header {
 }
 
 .hero-content h1 span {
-  color: #8CB369;
+  color: var(--secondary-green);
 }
 
 .hero-content p {
@@ -206,23 +268,18 @@ header {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  background-color: #8CB369;
-  color: #ffffff;
+  background-color: var(--primary-green);
+  color: #FFFFFF;
   padding: 16px 32px;
   border-radius: 30px;
   font-size: 16px;
   font-weight: 600;
-  box-shadow: 0 10px 25px rgba(140, 179, 105, 0.3);
+  box-shadow: var(--shadow-md);
 }
 
 .hero-btn:hover {
-  background-color: #79A356;
+  background-color: var(--primary-dark);
   transform: translateY(-2px);
-}
-
-.hero-btn svg {
-  width: 20px;
-  height: 20px;
 }
 
 /* ==========================================================================
@@ -230,7 +287,7 @@ header {
    ========================================================================== */
 #sobre-nos {
   padding: 100px 0;
-  background-color: #ffffff;
+  background-color: var(--bg-card);
 }
 
 .about-wrapper {
@@ -246,7 +303,7 @@ header {
 
 .about-text p {
   font-size: 16px;
-  color: #4A5568;
+  color: var(--text-muted);
   margin-bottom: 20px;
 }
 
@@ -254,13 +311,13 @@ header {
   flex: 1;
 }
 
-.about-image-wrapper img{
-  height: 355px;
-  width: auto;
-  border-radius: 8px;
+.about-image-wrapper img {
+  width: 100%;
+  max-height: 380px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
 }
-
-
 
 .mvv-grid {
   display: grid;
@@ -269,9 +326,9 @@ header {
 }
 
 .mvv-card {
-  background-color: #FAFAF9;
-  border: 1px solid #E2E8F0;
-  border-top: 4px solid #1E5A44;
+  background-color: var(--bg-alt);
+  border: 1px solid var(--border-color);
+  border-top: 4px solid var(--primary-green);
   padding: 32px 24px;
   border-radius: 0 0 12px 12px;
   transition: all 0.3s ease;
@@ -279,35 +336,31 @@ header {
 
 .mvv-card:hover {
   transform: translateY(-4px);
-  border-top-color: #8CB369;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.04);
+  border-top-color: var(--accent-ochre);
+  box-shadow: var(--shadow-sm);
 }
 
 .mvv-icon {
-  width: 44px;
-  height: 44px;
-  background-color: rgba(30, 90, 68, 0.08);
+  width: 48px;
+  height: 48px;
+  background-color: rgba(50, 125, 95, 0.1);
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #1E5A44;
+  color: var(--primary-green);
   margin-bottom: 20px;
-}
-
-.mvv-icon svg {
-  width: 24px;
-  height: 24px;
 }
 
 .mvv-card h4 {
   font-size: 18px;
+  color: var(--text-main);
   margin-bottom: 12px;
 }
 
 .mvv-card p {
   font-size: 14px;
-  color: #64748B;
+  color: var(--text-muted);
 }
 
 /* ==========================================================================
@@ -315,7 +368,7 @@ header {
    ========================================================================== */
 #programacao {
   padding: 100px 0;
-  background-color: #F5F5F3;
+  background-color: var(--bg-alt);
 }
 
 .schedule-grid {
@@ -325,29 +378,27 @@ header {
 }
 
 .schedule-day-card {
-  background-color: #ffffff;
-  border: 1px solid #E2E8F0;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
   border-radius: 16px;
   padding: 32px;
+  box-shadow: var(--shadow-sm);
 }
 
 .day-title {
   display: flex;
   align-items: center;
   gap: 12px;
-  color: #1E5A44;
+  color: var(--primary-green);
   font-size: 20px;
   font-weight: 700;
-  border-bottom: 2px solid #F1F5F9;
+  border-bottom: 2px solid var(--border-color);
   padding-bottom: 16px;
   margin-bottom: 20px;
 }
 
-.day-title svg {
-  width: 22px;
-  height: 22px;
-  stroke: #8CB369;
-  fill: none;
+.day-title i {
+  color: var(--secondary-green);
 }
 
 .events-list {
@@ -363,8 +414,8 @@ header {
 }
 
 .event-time-badge {
-  background-color: rgba(30, 90, 68, 0.08);
-  color: #1E5A44;
+  background-color: rgba(50, 125, 95, 0.12);
+  color: var(--primary-green);
   padding: 4px 12px;
   border-radius: 6px;
   font-size: 13px;
@@ -373,20 +424,84 @@ header {
 }
 
 .event-time-badge.special {
-  background-color: rgba(140, 179, 105, 0.12);
-  color: #79A356;
+  background-color: var(--accent-light);
+  color: var(--accent-ochre);
 }
 
 .event-details h5 {
   font-size: 16px;
   font-weight: 600;
-  color: #2D3732;
+  color: var(--text-main);
   margin-bottom: 4px;
 }
 
 .event-details p {
   font-size: 14px;
-  color: #64748B;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   PROJETOS SECTION
+   ========================================================================== */
+#projetos {
+  padding: 100px 0;
+  background-color: var(--bg-card);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+}
+
+.project-card {
+  background-color: var(--bg-alt);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--secondary-green);
+  box-shadow: var(--shadow-sm);
+}
+
+.project-logo-wrapper {
+  width: 200px; 
+  height: 200px; 
+  margin: 0 auto 24px auto; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFFFFF; 
+  border-radius: 50%;
+  padding: 5px; 
+  border: 2px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.project-logo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+.project-content h4 {
+  font-size: 20px;
+  color: var(--primary-green);
+  margin-bottom: 12px;
+}
+
+.project-content p {
+  font-size: 14px;
+  color: var(--text-muted);
 }
 
 /* ==========================================================================
@@ -394,18 +509,18 @@ header {
    ========================================================================== */
 #ministerio {
   padding: 100px 0;
-  background-color: #ffffff;
+  background-color: var(--bg-alt);
 }
 
 .ministry-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 
 .ministry-card {
-  background-color: #FAFAF9;
-  border: 1px solid #E2E8F0;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
   border-radius: 12px;
   overflow: hidden;
   transition: all 0.3s ease;
@@ -413,22 +528,17 @@ header {
 
 .ministry-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(140, 179, 105, 0.5);
+  border-color: var(--accent-ochre);
 }
 
 .ministry-img-placeholder {
   width: 100%;
-  height: 160px;
-  background: linear-gradient(135deg, #1E5A44 0%, #2D3732 100%);
+  height: 140px;
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-dark) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.2);
-}
-
-.ministry-img-placeholder svg {
-  width: 48px;
-  height: 48px;
+  color: var(--secondary-green);
 }
 
 .ministry-content {
@@ -437,13 +547,13 @@ header {
 
 .ministry-content h4 {
   font-size: 18px;
-  color: #1E5A44;
+  color: var(--primary-green);
   margin-bottom: 8px;
 }
 
 .ministry-content p {
   font-size: 14px;
-  color: #64748B;
+  color: var(--text-muted);
 }
 
 /* ==========================================================================
@@ -451,12 +561,12 @@ header {
    ========================================================================== */
 #contato {
   padding: 100px 0;
-  background-color: #1E5A44;
-  color: #ffffff;
+  background-color: var(--primary-dark);
+  color: #FFFFFF;
 }
 
 #contato .section-title {
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 #contato .section-subtitle {
@@ -476,7 +586,7 @@ header {
 .contact-info h4 {
   font-size: 22px;
   margin-bottom: 16px;
-  color: rgba(255, 255, 255, 0.85);
+  color: #FFFFFF;
 }
 
 .contact-info p {
@@ -497,11 +607,8 @@ header {
   gap: 16px;
 }
 
-.contact-link-item svg {
-  width: 22px;
-  height: 22px;
-  color: #8CB369;
-  fill: none;
+.contact-link-item i {
+  color: var(--accent-ochre);
 }
 
 .contact-socials {
@@ -538,30 +645,25 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
+  color: #FFFFFF;
   transition: all 0.3s ease;
 }
 
 .social-btn:hover {
-  background-color: #8CB369;
-  border-color: #8CB369;
+  background-color: var(--accent-ochre);
+  border-color: var(--accent-ochre);
   transform: translateY(-4px);
-}
-
-.social-btn svg {
-  width: 22px;
-  height: 22px;
-  fill: currentColor;
 }
 
 /* ==========================================================================
    FOOTER
    ========================================================================== */
 footer {
-  background-color: #143D2E;
-  color: rgba(255, 255, 255, 0.5);
+  background-color: #121815;
+  color: rgba(255, 255, 255, 0.6);
   padding: 32px 0;
   font-size: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .footer-inner {
@@ -578,10 +680,7 @@ footer {
     flex-direction: column;
     gap: 40px;
   }
-  .mvv-grid {
-    grid-template-columns: 1fr;
-  }
-  .schedule-grid {
+  .mvv-grid, .schedule-grid {
     grid-template-columns: 1fr;
   }
   .ministry-grid {
@@ -592,7 +691,6 @@ footer {
 @media (max-width: 576px) {
   .hero-content h1 {
     font-size: 36px;
-    font-weight: 700;
     line-height: 1.2;
     margin-bottom: 20px;
   }
@@ -600,18 +698,18 @@ footer {
   .nav-links {
     display: none;
   }
+
   .ministry-grid {
     grid-template-columns: 1fr;
   }
+
   .footer-inner {
     flex-direction: column;
     gap: 16px;
     text-align: center;
   }
 
-  .about-image-wrapper img{
-  height: 200px;
-  width: auto;
-  border-radius: 8px;
-}
+  .about-image-wrapper img {
+    height: 240px;
+  }
 }
