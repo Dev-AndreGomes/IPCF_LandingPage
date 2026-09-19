@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; object-src 'none';">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pão na Rua - IPCF</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="icon" type="image/png" href="../assets/icons/IPCF_logo.png">
+
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+  <!-- Overlay para o Mobile Drawer -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <img src="/assets/img/IPCF_header.png" alt="IPB Casa Forte" class="drawer-logo">
+      <button class="close-drawer-btn" id="closeDrawerBtn" aria-label="Fechar Menu">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <ul class="drawer-links">
+      <li><a href="/index.html#missao" class="drawer-link">Identidade</a></li>
+      <li><a href="/index.html#programacao" class="drawer-link">Programação</a></li>
+      <li><a href="/index.html#projetos" class="drawer-link">Projetos</a></li>
+      <li><a href="/index.html#ministerios" class="drawer-link">Ministérios</a></li>
+    </ul>
+  </div>
+
+  <!-- ==================== HEADER ==================== -->
+  <header>
+    <div class="container navbar">
+      <div class="nav-logo">
+        <a href="/index.html">
+          <img src="../assets/img/IPCF_header.png" alt="IPB Casa Forte">
+        </a>
+      </div>
+      <div class="nav-content">
+        <ul class="nav-links">
+          <li><a href="/index.html#missao">Identidade</a></li>
+          <li><a href="/index.html#programacao">Programação</a></li>
+          <li><a href="/index.html#projetos">Projetos</a></li>
+          <li><a href="/index.html#ministerios">Ministérios</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="theme-toggle" id="themeToggleBtn" aria-label="Alternar Tema Claro/Escuro">
+            <i class="fas fa-moon"></i>
+          </button>
+          <button class="mobile-menu-btn" id="openDrawerBtn" aria-label="Abrir Menu">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== PROJECT HERO ==================== -->
+  <section class="project-hero">
+    <div class="project-hero-bg"></div>
+    <div class="container">
+      <a href="/index.html" class="back-link">
+        <i class="fas fa-arrow-left"></i>
+        Voltar para Home
+      </a>
+      <h1>Pão na Rua</h1>
+      <p class="section-subtitle">Alimentando o corpo com o pão e a alma com a Palavra de Deus nas ruas de nossa cidade.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================== PROJECT DETAIL ==================== -->
+  <section class="project-detail">
+    <div class="container project-detail-layout">
+
+      <!-- Lado Esquerdo: Conteúdo Principal -->
+      <div class="project-detail-content">
+
+        <div class="project-featured-card">
+          <img src="/assets/img/Logo_paonarua.png" alt="Logo Projeto Pão na Rua">
+        </div>
+
+        <div class="project-text-card">
+          <h2>Sobre o Projeto</h2>
+          <p>O <strong>Pão na Rua</strong> é uma iniciativa de amor prático que nasceu do coração da nossa igreja para
+            alcançar as pessoas em situação de rua. Nosso objetivo não é apenas saciar a fome física, mas, acima de
+            tudo, levar a esperança e o conforto do Evangelho.</p>
+          <p>Acreditamos que cada marmita entregue é uma oportunidade para demonstrar a graça de Cristo, ouvir
+            histórias, orar por necessidades e mostrar que essas vidas têm valor eterno para Deus.</p>
+
+          <div class="project-features">
+            <div class="feature-box">
+              <i class="fas fa-utensils"></i>
+              <h4>Refeições Quentes</h4>
+              <p>Preparadas com dedicação pelos irmãos, garantindo alimento de qualidade.</p>
+            </div>
+            <div class="feature-box">
+              <i class="fas fa-bible"></i>
+              <h4>Evangelismo</h4>
+              <p>Apresentação da Palavra de Deus em cada abordagem nas ruas.</p>
+            </div>
+            <div class="feature-box">
+              <i class="fas fa-hands-helping"></i>
+              <h4>Acolhimento</h4>
+              <p>Ouvir, conversar e orar pelas necessidades de cada pessoa atendida.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Lado Direito: Sidebar -->
+      <aside>
+        <div class="project-sidebar">
+          <h3>Como Participar?</h3>
+
+          <div class="sidebar-info-item">
+            <i class="far fa-calendar-check"></i>
+            <div>
+              <h5>Quando Acontece</h5>
+              <p>Toda 2ª terça-feira do mês</p>
+            </div>
+          </div>
+
+          <div class="sidebar-info-item">
+            <i class="far fa-clock"></i>
+            <div>
+              <h5>Horário</h5>
+              <p>Preparo: 17h | Saída: 19h30</p>
+            </div>
+          </div>
+
+          <div class="sidebar-info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <h5>Local de Encontro</h5>
+              <p>Cozinha da IPCF (Térreo)</p>
+            </div>
+          </div>
+
+          <div class="sidebar-info-item">
+            <i class="fas fa-hand-holding-heart"></i>
+            <div>
+              <h5>Como Ajudar</h5>
+              <p>Doações de alimentos, preparo das marmitas ou participando da entrega nas ruas.</p>
+            </div>
+          </div>
+
+          <a href="#" class="btn btn-primary btn-full mb-16">
+            Fazer uma Doação
+            <i class="fas fa-heart"></i>
+          </a>
+
+          <a href="#" class="btn btn-whatsapp btn-full" target="_blank" rel="noopener noreferrer">
+            Falar no WhatsApp
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <p>© 2026 <strong>Igreja Presbiteriana em Casa Forte</strong>. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="/js/script.js"></script>
+</body>
+
+</html>
