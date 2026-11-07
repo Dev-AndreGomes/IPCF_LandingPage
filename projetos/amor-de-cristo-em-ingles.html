@@ -2,168 +2,204 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; object-src 'none';">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inglês Solidário - IPCF</title>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  
-  <link rel="icon" type="image/png" href="../assets/icons/IPCF_logo.png">
-  
-  <link rel="stylesheet" href="/css/style.css">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+
+  <title>Inglês Solidário | Igreja Presbiteriana em Casa Forte</title>
+  <meta name="description" content="Inglês Solidário, o projeto O Amor de Cristo Expresso em Inglês: aulas gratuitas de inglês para a comunidade, aos sábados pela manhã, na Igreja Presbiteriana em Casa Forte, Recife.">
+  <meta name="theme-color" content="#faf8f3">
+  <link rel="canonical" href="https://SEU-DOMINIO.com.br/projetos/amor-de-cristo-em-ingles.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Igreja Presbiteriana em Casa Forte">
+  <meta property="og:title" content="Inglês Solidário | Igreja Presbiteriana em Casa Forte">
+  <meta property="og:description" content="O Amor de Cristo Expresso em Inglês: Capacitando a comunidade e abrindo portas para o futuro.">
+  <meta property="og:url" content="https://SEU-DOMINIO.com.br/projetos/amor-de-cristo-em-ingles.html">
+  <meta property="og:image" content="https://SEU-DOMINIO.com.br/assets/img/opt/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Membros da Igreja Presbiteriana em Casa Forte reunidos em frente ao templo">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="../assets/icons/IPCF_logo.png">
+  <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="../site.webmanifest">
+
+  <link rel="preload" href="../assets/fonts/fraunces-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/plus-jakarta-sans-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../css/style.min.css">
 </head>
 <body>
+
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
   <!-- Overlay para o Mobile Drawer -->
   <div class="drawer-overlay" id="drawerOverlay"></div>
 
   <!-- Mobile Drawer -->
-  <div class="mobile-drawer" id="mobileDrawer">
+  <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Menu de navegação" inert>
     <div class="drawer-header">
-      <img src="/assets/img/IPCF_header.png" alt="IPB Casa Forte" class="drawer-logo">
-      <button class="close-drawer-btn" id="closeDrawerBtn" aria-label="Fechar Menu">
-        <i class="fas fa-times"></i>
+      <div class="nav-brand">
+        <img src="../assets/icons/IPCF_logo.png" alt="" class="nav-brand-symbol" width="256" height="264" decoding="async">
+        <div class="nav-brand-text">
+          <span class="nav-brand-top">IGREJA PRESBITERIANA EM</span>
+          <span class="nav-brand-main">CASA FORTE</span>
+        </div>
+      </div>
+      <button type="button" class="icon-btn close-drawer-btn" id="closeDrawerBtn" aria-label="Fechar Menu">
+        <svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#i-x"></use></svg>
       </button>
     </div>
-    <ul class="drawer-links">
-      <li><a href="/index.html#missao" class="drawer-link">Identidade</a></li>
-      <li><a href="/index.html#programacao" class="drawer-link">Programação</a></li>
-      <li><a href="/index.html#projetos" class="drawer-link">Projetos</a></li>
-      <li><a href="/index.html#ministerios" class="drawer-link">Ministérios</a></li>
-    </ul>
+    <nav aria-label="Menu móvel">
+      <ul class="drawer-links">
+        <li><a href="../index.html#sobre-nos" class="drawer-link">Identidade</a></li>
+        <li><a href="../index.html#programacao" class="drawer-link">Programação</a></li>
+        <li><a href="../index.html#projetos" class="drawer-link">Projetos</a></li>
+        <li><a href="../index.html#ministerio" class="drawer-link">Ministérios</a></li>
+      </ul>
+    </nav>
   </div>
 
   <!-- ==================== HEADER ==================== -->
   <header>
     <div class="container navbar">
-      <div class="nav-logo">
-        <a href="/index.html">
-          <img src="../assets/img/IPCF_header.png" alt="IPB Casa Forte">
-        </a>
-      </div>
-      <div class="nav-content">
-        <ul class="nav-links">
-          <li><a href="/index.html#missao">Identidade</a></li>
-          <li><a href="/index.html#programacao">Programação</a></li>
-          <li><a href="/index.html#projetos">Projetos</a></li>
-          <li><a href="/index.html#ministerios">Ministérios</a></li>
-        </ul>
-        <div class="nav-actions">
-          <button class="theme-toggle" id="themeToggleBtn" aria-label="Alternar Tema Claro/Escuro">
-            <i class="fas fa-moon"></i>
-          </button>
-          <button class="mobile-menu-btn" id="openDrawerBtn" aria-label="Abrir Menu">
-            <i class="fas fa-bars"></i>
-          </button>
+      <a href="../index.html" class="nav-logo" aria-label="Igreja Presbiteriana em Casa Forte — início">
+        <div class="nav-brand">
+          <img src="../assets/icons/IPCF_logo.png" alt="" class="nav-brand-symbol" width="256" height="264" decoding="async">
+          <div class="nav-brand-text">
+            <span class="nav-brand-top">IGREJA PRESBITERIANA EM</span>
+            <span class="nav-brand-main">CASA FORTE</span>
+          </div>
         </div>
+      </a>
+      <div class="nav-content">
+        <nav aria-label="Principal">
+          <ul class="nav-links">
+            <li><a href="../index.html#sobre-nos">Identidade</a></li>
+            <li><a href="../index.html#programacao">Programação</a></li>
+            <li><a href="../index.html#projetos">Projetos</a></li>
+            <li><a href="../index.html#ministerio">Ministérios</a></li>
+          </ul>
+        </nav>
+
+        <button type="button" class="icon-btn mobile-menu-btn" id="openDrawerBtn" aria-label="Abrir Menu" aria-haspopup="dialog" aria-controls="mobileDrawer" aria-expanded="false">
+          <svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#i-menu"></use></svg>
+        </button>
       </div>
     </div>
   </header>
 
-  <!-- ==================== PROJECT HERO ==================== -->
-  <section class="project-hero">
-    <div class="project-hero-bg"></div>
-    <div class="container">
-      <a href="/index.html" class="back-link">
-        <i class="fas fa-arrow-left"></i>
-        Voltar para Home
-      </a>
-      <h1>Inglês Solidário</h1>
-      <p class="section-subtitle">O Amor de Cristo Expresso em Inglês: Capacitando a comunidade e abrindo portas para o futuro.</p>
-    </div>
-  </section>
+  <main id="conteudo" tabindex="-1">
+    <!-- ==================== PROJECT HERO ==================== -->
+    <section class="project-hero">
+      <div class="project-hero-bg"></div>
+      <div class="container">
+        <a href="../index.html" class="back-link">
+          <svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#i-arrow-left"></use></svg>
+          Voltar para Home
+        </a>
+        <h1>Inglês Solidário</h1>
+        <p class="section-subtitle">O Amor de Cristo Expresso em Inglês: Capacitando a comunidade e abrindo portas para o futuro.</p>
+      </div>
+    </section>
 
-  <!-- ==================== PROJECT DETAIL ==================== -->
-  <section class="project-detail">
-    <div class="container project-detail-layout">
-      
-      <!-- Lado Esquerdo: Conteúdo Principal -->
-      <div class="project-detail-content">
-        
-        <div class="project-featured-card">
-          <img src="/assets/img/logo_OACEI_IPCF.jpeg" alt="Logo Projeto O Amor de Cristo Expresso em Inglês">
-        </div>
+    <!-- ==================== PROJECT DETAIL ==================== -->
+    <section class="project-detail">
+      <div class="container project-detail-layout">
 
-        <div class="project-text-card">
-          <h2>Sobre o Projeto</h2>
-          <p>O projeto <strong>O Amor de Cristo Expresso em Inglês</strong> é uma iniciativa educacional que oferece aulas gratuitas de inglês para a comunidade. Nosso propósito é utilizar a educação como uma ferramenta de transformação social e aproximação com os valores cristãos.</p>
-          <p>Aprender um novo idioma abre portas profissionais e acadêmicas, e nós desejamos abençoar a vida dos nossos alunos proporcionando ensino de qualidade em um ambiente seguro, acolhedor e focado no crescimento integral do indivíduo.</p>
+        <!-- Lado Esquerdo: Conteúdo Principal -->
+        <div class="project-detail-content">
 
-          <div class="project-features">
-            <div class="feature-box">
-              <i class="fas fa-chalkboard-teacher"></i>
-              <h4>Ensino de Qualidade</h4>
-              <p>Professores capacitados e metodologia focada no desenvolvimento real do idioma.</p>
-            </div>
-            <div class="feature-box">
-              <i class="fas fa-book-open"></i>
-              <h4>Material Gratuito</h4>
-              <p>Os alunos recebem suporte e material didático sem nenhum custo.</p>
-            </div>
-            <div class="feature-box">
-              <i class="fas fa-seedling"></i>
-              <h4>Valores Cristãos</h4>
-              <p>Um ambiente de respeito, encorajamento e amor ao próximo durante o aprendizado.</p>
+          <div class="project-featured-card">
+            <picture>
+              <source type="image/webp" srcset="../assets/img/opt/oacei-320.webp 320w, ../assets/img/opt/oacei-640.webp 640w" sizes="320px">
+              <img src="../assets/img/logo_OACEI_IPCF.jpeg" alt="Logo Projeto O Amor de Cristo Expresso em Inglês" width="1024" height="1048" decoding="async">
+            </picture>
+          </div>
+
+          <div class="project-text-card">
+            <h2>Sobre o Projeto</h2>
+            <p>O projeto <strong>O Amor de Cristo Expresso em Inglês</strong> é uma iniciativa educacional que oferece aulas gratuitas de inglês para a comunidade. Nosso propósito é utilizar a educação como uma ferramenta de transformação social e aproximação com os valores cristãos.</p>
+            <p>Aprender um novo idioma abre portas profissionais e acadêmicas, e nós desejamos abençoar a vida dos nossos alunos proporcionando ensino de qualidade em um ambiente seguro, acolhedor e focado no crescimento integral do indivíduo.</p>
+
+            <div class="project-features">
+              <div class="feature-box">
+                <svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#i-presentation"></use></svg>
+                <h3>Ensino de Qualidade</h3>
+                <p>Professores capacitados e metodologia focada no desenvolvimento real do idioma.</p>
+              </div>
+              <div class="feature-box">
+                <svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#i-book-open"></use></svg>
+                <h3>Material Gratuito</h3>
+                <p>Os alunos recebem suporte e material didático sem nenhum custo.</p>
+              </div>
+              <div class="feature-box">
+                <svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#i-sprout"></use></svg>
+                <h3>Valores Cristãos</h3>
+                <p>Um ambiente de respeito, encorajamento e amor ao próximo durante o aprendizado.</p>
+              </div>
             </div>
           </div>
+
         </div>
+
+        <!-- Lado Direito: Sidebar -->
+        <aside aria-label="Como participar do projeto">
+          <div class="project-sidebar">
+            <h2>Como Participar?</h2>
+
+            <div class="sidebar-info-item">
+              <svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#i-calendar-check"></use></svg>
+              <div>
+                <h3>Aulas</h3>
+                <p>Sábados pela manhã</p>
+              </div>
+            </div>
+
+            <div class="sidebar-info-item">
+              <svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#i-graduation-cap"></use></svg>
+              <div>
+                <h3>Público-Alvo</h3>
+                <p>Crianças, jovens e adultos da comunidade.</p>
+              </div>
+            </div>
+
+            <div class="sidebar-info-item">
+              <svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#i-map-pin"></use></svg>
+              <div>
+                <h3>Local</h3>
+                <p>Salas de Aula da IPCF (1º Andar)</p>
+              </div>
+            </div>
+
+            <div class="sidebar-info-item">
+              <svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#i-hand-heart"></use></svg>
+              <div>
+                <h3>Como Ajudar</h3>
+                <p>Se você é professor(a) de inglês ou quer apadrinhar o material de um aluno, entre em contato!</p>
+              </div>
+            </div>
+
+            <!-- TODO: informar o link de inscrição real -->
+            <a href="#" class="btn btn-primary btn-full mb-16">
+              Quero ser Aluno
+              <svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#i-user-plus"></use></svg>
+            </a>
+
+            <!-- TODO: informar o link do WhatsApp (https://wa.me/55DDDNUMERO) -->
+            <a href="#" class="btn btn-whatsapp btn-full" target="_blank" rel="noopener noreferrer">
+              Falar no WhatsApp
+              <svg class="icon" aria-hidden="true"><use href="../assets/icons/sprite.svg#i-whatsapp"></use></svg>
+            </a>
+          </div>
+        </aside>
 
       </div>
-
-      <!-- Lado Direito: Sidebar -->
-      <aside>
-        <div class="project-sidebar">
-          <h3>Como Participar?</h3>
-          
-          <div class="sidebar-info-item">
-            <i class="far fa-calendar-check"></i>
-            <div>
-              <h5>Aulas</h5>
-              <p>Sábados pela manhã</p>
-            </div>
-          </div>
-
-          <div class="sidebar-info-item">
-            <i class="fas fa-user-graduate"></i>
-            <div>
-              <h5>Público-Alvo</h5>
-              <p>Crianças, jovens e adultos da comunidade.</p>
-            </div>
-          </div>
-
-          <div class="sidebar-info-item">
-            <i class="fas fa-map-marker-alt"></i>
-            <div>
-              <h5>Local</h5>
-              <p>Salas de Aula da IPCF (1º Andar)</p>
-            </div>
-          </div>
-
-          <div class="sidebar-info-item">
-            <i class="fas fa-hand-holding-heart"></i>
-            <div>
-              <h5>Como Ajudar</h5>
-              <p>Se você é professor(a) de inglês ou quer apadrinhar o material de um aluno, entre em contato!</p>
-            </div>
-          </div>
-
-          <a href="#" class="btn btn-primary btn-full mb-16">
-            Quero ser Aluno
-            <i class="fas fa-user-plus"></i>
-          </a>
-          
-          <a href="#" class="btn btn-whatsapp btn-full" target="_blank" rel="noopener noreferrer">
-            Falar no WhatsApp
-            <i class="fab fa-whatsapp"></i>
-          </a>
-        </div>
-      </aside>
-
-    </div>
-  </section>
+    </section>
+  </main>
 
   <footer>
     <div class="container footer-inner">
@@ -171,6 +207,6 @@
     </div>
   </footer>
 
-  <script src="/js/script.js"></script>
+  <script src="../js/script.min.js" defer></script>
 </body>
 </html>

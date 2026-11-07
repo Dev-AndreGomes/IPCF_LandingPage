@@ -1,0 +1,14 @@
+{
+  "name": "Igreja Presbiteriana em Casa Forte",
+  "short_name": "IPCF",
+  "lang": "pt-BR",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "browser",
+  "background_color": "#faf8f3",
+  "theme_color": "#1b4d37",
+  "icons": [
+    { "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

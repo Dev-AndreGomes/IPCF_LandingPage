@@ -1,419 +1,585 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; object-src 'none';">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Igreja Presbiteriana em Casa Forte</title>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  
-  <link rel="icon" type="image/png" href="assets/icons/IPCF_logo.png">
-  
-  <link rel="stylesheet" href="/css/style.css">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+
+  <title>Igreja Presbiteriana em Casa Forte | Recife, PE</title>
+  <meta name="description"
+    content="Igreja Presbiteriana em Casa Forte, Recife: pregação expositiva da Palavra, comunhão bíblica, programação semanal e projetos como o Pão na Rua. Venha nos visitar.">
+  <meta name="theme-color" content="#faf8f3">
+  <link rel="canonical" href="https://SEU-DOMINIO.com.br/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Igreja Presbiteriana em Casa Forte">
+  <meta property="og:title" content="Igreja Presbiteriana em Casa Forte | Recife, PE">
+  <meta property="og:description"
+    content="Proclamando a verdade eterna de Deus, cultivando a comunhão bíblica e servindo à nossa cidade com amor e fidelidade reformada.">
+  <meta property="og:url" content="https://SEU-DOMINIO.com.br/">
+  <meta property="og:image" content="https://SEU-DOMINIO.com.br/assets/img/opt/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Membros da Igreja Presbiteriana em Casa Forte reunidos em frente ao templo">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="assets/icons/IPCF_logo.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <link rel="preload" href="assets/fonts/fraunces-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/plus-jakarta-sans-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.min.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Church",
+    "name": "Igreja Presbiteriana em Casa Forte",
+    "url": "https://SEU-DOMINIO.com.br/",
+    "logo": "https://SEU-DOMINIO.com.br/assets/icons/icon-512.png",
+    "image": "https://SEU-DOMINIO.com.br/assets/img/opt/og-image.jpg",
+    "description": "Igreja Presbiteriana do Brasil em Casa Forte, Recife: pregação expositiva da Palavra, comunhão bíblica e serviço à cidade.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Estrada do Encanamento, 1210, Casa Forte",
+      "addressLocality": "Recife",
+      "addressRegion": "PE",
+      "addressCountry": "BR"
+    },
+    "hasMap": "https://maps.app.goo.gl/tm8EVcg4wsBbrC4g7",
+    "sameAs": [
+      "https://www.instagram.com/ipcasaforte",
+      "https://youtube.com/@ipcasaforte3548"
+    ]
+  }
+  </script>
 </head>
+
 <body>
+
+  <!-- Animação de Abertura Cinematográfica (1ª visita da sessão) -->
+  <div class="intro-overlay" id="introOverlay" aria-hidden="true">
+    <div class="intro-stage" id="introStage">
+      <div class="intro-logo-group" id="introLogoGroup">
+        <div class="intro-symbol-stage" id="introSymbolStage" aria-hidden="true">
+          <img src="assets/icons/ipcf-leaf-center.png" alt="" class="intro-leaf intro-leaf-center" width="256" height="264" decoding="async">
+          <img src="assets/icons/ipcf-leaf-left.png" alt="" class="intro-leaf intro-leaf-left" width="256" height="264" decoding="async">
+          <img src="assets/icons/ipcf-leaf-right.png" alt="" class="intro-leaf intro-leaf-right" width="256" height="264" decoding="async">
+        </div>
+
+        <div class="intro-brand-text" id="introBrandText">
+          <span class="intro-brand-top">IGREJA PRESBITERIANA EM</span>
+          <span class="intro-brand-main">CASA FORTE</span>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="intro-skip-btn sr-only" id="introSkipBtn">Pular introdução</button>
+  </div>
 
   <!-- Overlay para o Mobile Drawer -->
   <div class="drawer-overlay" id="drawerOverlay"></div>
 
   <!-- Mobile Drawer -->
-  <div class="mobile-drawer" id="mobileDrawer">
+  <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Menu de navegação" inert>
     <div class="drawer-header">
-      <img src="/assets/img/IPCF_header.png" alt="IPB Casa Forte" class="drawer-logo">
-      <button class="close-drawer-btn" id="closeDrawerBtn" aria-label="Fechar Menu">
-        <i class="fas fa-times"></i>
+      <div class="nav-brand">
+        <img src="assets/icons/IPCF_logo.png" alt="" class="nav-brand-symbol" width="256" height="264" decoding="async">
+        <div class="nav-brand-text">
+          <span class="nav-brand-top">IGREJA PRESBITERIANA EM</span>
+          <span class="nav-brand-main">CASA FORTE</span>
+        </div>
+      </div>
+      <button type="button" class="icon-btn close-drawer-btn" id="closeDrawerBtn" aria-label="Fechar Menu">
+        <svg class="icon" aria-hidden="true">
+          <use href="assets/icons/sprite.svg#i-x"></use>
+        </svg>
       </button>
     </div>
-    <ul class="drawer-links">
-      <li><a href="#sobre-nos" class="drawer-link">Sobre Nós</a></li>
-      <li><a href="#programacao" class="drawer-link">Programação</a></li>
-      <li><a href="#projetos" class="drawer-link">Projetos</a></li>
-      <li><a href="#ministerio" class="drawer-link">Ministérios</a></li>
-      <li><a href="#contato" class="drawer-link">Contato</a></li>
-    </ul>
+    <nav aria-label="Menu móvel">
+      <ul class="drawer-links">
+        <li><a href="#sobre-nos" class="drawer-link">Sobre Nós</a></li>
+        <li><a href="#programacao" class="drawer-link">Programação</a></li>
+        <li><a href="#projetos" class="drawer-link">Projeto</a></li>
+        <li><a href="#ministerio" class="drawer-link">Ministérios</a></li>
+        <li><a href="#contato" class="drawer-link">Contato</a></li>
+      </ul>
+    </nav>
   </div>
 
   <header>
     <div class="container navbar">
-      <a href="#hero" class="nav-logo">
-        <img src="/assets/img/IPCF_header.png" alt="IPB Casa Forte">
+      <a href="#hero" class="nav-logo" aria-label="Igreja Presbiteriana em Casa Forte — início">
+        <div class="nav-brand">
+          <img src="assets/icons/IPCF_logo.png" alt="" class="nav-brand-symbol" width="256" height="264"
+            decoding="async">
+          <div class="nav-brand-text">
+            <span class="nav-brand-top">IGREJA PRESBITERIANA EM</span>
+            <span class="nav-brand-main">CASA FORTE</span>
+          </div>
+        </div>
       </a>
-      
+
       <div class="nav-content">
-        <ul class="nav-links">
-          <li><a href="#sobre-nos">Sobre Nós</a></li>
-          <li><a href="#programacao">Programação</a></li>
-          <li><a href="#projetos">Projetos</a></li>
-          <li><a href="#ministerio">Ministérios</a></li>
-          <li><a href="#contato">Contato</a></li>
-        </ul>
-        
-        <button class="theme-toggle" id="themeToggleBtn" aria-label="Alternar Tema Claro/Escuro">
-          <i class="fas fa-moon"></i>
-        </button>
-        
-        <button class="mobile-menu-btn" id="openDrawerBtn" aria-label="Abrir Menu">
-          <i class="fas fa-bars"></i>
+        <nav aria-label="Principal">
+          <ul class="nav-links">
+            <li><a href="#sobre-nos">Sobre Nós</a></li>
+            <li><a href="#programacao">Programação</a></li>
+            <li><a href="#projetos">Projeto</a></li>
+            <li><a href="#ministerio">Ministérios</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </nav>
+
+        <button type="button" class="icon-btn mobile-menu-btn" id="openDrawerBtn" aria-label="Abrir Menu"
+          aria-haspopup="dialog" aria-controls="mobileDrawer" aria-expanded="false">
+          <svg class="icon" aria-hidden="true">
+            <use href="assets/icons/sprite.svg#i-menu"></use>
+          </svg>
         </button>
       </div>
     </div>
   </header>
 
-  <section id="hero">
-    <div class="hero-bg">
-      <img src="/assets/img/hero_ipcf_img.jpg" alt="Igreja Presbiteriana" class="hero-img">
-      <div class="hero-overlay"></div>
-    </div>
-    <div class="hero-content">
-      <span class="hero-badge">Igreja Presbiteriana do Brasil</span>
-      <h1>Uma Igreja Acolhedora em <span>Casa Forte</span></h1>
-      <p>Proclamando a verdade eterna de Deus, cultivando a comunhão bíblica e servindo à nossa cidade com amor e fidelidade reformada.</p>
-      
-      <div class="hero-actions">
-        <a href="https://maps.app.goo.gl/tm8EVcg4wsBbrC4g7" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-          <i class="fas fa-map-marker-alt"></i>
-          Como Chegar / Localização
-        </a>
+  <main id="conteudo" tabindex="-1">
+    <section id="hero" aria-labelledby="hero-title">
+      <div class="hero-bg">
+        <picture>
+          <source type="image/avif"
+            srcset="assets/img/opt/hero-640.avif 640w, assets/img/opt/hero-960.avif 960w, assets/img/opt/hero-1280.avif 1280w"
+            sizes="100vw">
+          <source type="image/webp"
+            srcset="assets/img/opt/hero-640.webp 640w, assets/img/opt/hero-960.webp 960w, assets/img/opt/hero-1280.webp 1280w"
+            sizes="100vw">
+          <img src="assets/img/hero_ipcf_img.jpg"
+            alt="Membros da Igreja Presbiteriana em Casa Forte reunidos com os braços erguidos em frente ao templo"
+            class="hero-img" width="1280" height="853" fetchpriority="high" decoding="async">
+        </picture>
+        <div class="hero-overlay"></div>
       </div>
-    </div>
-  </section>
+      <div class="container">
+        <div class="hero-content">
+          <span class="hero-badge">Igreja Presbiteriana do Brasil</span>
+          <h1 id="hero-title">Uma Igreja Acolhedora em <span>Casa Forte</span></h1>
+          <p>Proclamando a verdade eterna de Deus, cultivando a comunhão bíblica e servindo à nossa cidade com amor e
+            fidelidade reformada.</p>
 
-  <section id="sobre-nos">
-    <div class="container reveal">
-      <h2 class="section-title">Sobre Nós</h2>
-      <p class="section-subtitle">Conheça um pouco da nossa história, herança teológica e o desejo de glorificar a Deus em Recife.</p>
-      
-      <div class="about-wrapper">
-        <div class="about-text">
-          <p>A Igreja Presbiteriana em Casa Forte é uma igreja de fé comprometida com as Sagradas Escrituras e com a rica tradição teológica reformada. Firmados na graça soberana de Deus, buscamos ser um farol de esperança e verdade em nosso bairro e em toda a cidade do Recife.</p>
-          <p>Aqui, você encontrará uma família espiritual focada na pregação expositiva da Palavra, no louvor reverente, na oração fervorosa e no cuidado mútuo. Nosso alvo é glorificar ao Deus Trino — Pai, Filho e Espírito Santo —, edificar os santos por meio de Sua Palavra (nossa única regra de fé e prática) e nos aproximar dos caídos e dos necessitados de Cristo.</p>
-        </div>
-        <div class="about-image-wrapper">
-          <div class="about-image-placeholder">
-            <img src="/assets/img/ipcf_img.jpg" alt="Foto da Igreja">
-          </div>
-        </div>
-      </div>
-
-      <div class="mvv-grid">
-        <div class="mvv-card reveal delay-1">
-          <div class="mvv-icon">
-            <i class="fas fa-bible icon-lg"></i>
-          </div>
-          <h4>Nossa Missão</h4>
-          <p>Glorificar a Deus por meio do culto bíblico, edificando os crentes na sã doutrina e espalhando o Evangelho a toda criatura.</p>
-        </div>
-
-        <div class="mvv-card reveal delay-2">
-          <div class="mvv-icon">
-            <i class="fas fa-eye icon-lg"></i>
-          </div>
-          <h4>Nossa Visão</h4>
-          <p>Ser uma igreja relevante, reconhecida pelo amor fraternal, maturidade teológica e impacto transformador na sociedade.</p>
-        </div>
-
-        <div class="mvv-card reveal delay-3">
-          <div class="mvv-icon">
-            <i class="fas fa-heart icon-lg"></i>
-          </div>
-          <h4>Nossos Valores</h4>
-          <p>Fidelidade às Escrituras, supremacia de Cristo, centralidade da graça, comunhão sincera e integridade moral na vida diária.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="programacao">
-    <div class="container reveal">
-      <h2 class="section-title">Programação</h2>
-      <p class="section-subtitle">Participe das nossas atividades semanais. Será uma alegria ter você e sua família conosco.</p>
-      
-      <div class="schedule-grid">
-        <div class="schedule-day-card reveal delay-1">
-          <div class="day-title">
-            <i class="far fa-calendar"></i>
-            <span>Domingo</span>
-          </div>
-          <div class="events-list">
-            <div class="event-item">
-              <span class="event-time-badge">09:00</span>
-              <div class="event-details">
-                <h5>Culto Matutino</h5>
-                <p>Momento comunitário de adoração, oração e exposição da Palavra de Deus.</p>
-              </div>
-            </div>
-            <div class="event-item">
-              <span class="event-time-badge">10:45</span>
-              <div class="event-details">
-                <h5>Escola Bíblica Dominical (EBD)</h5>
-                <p>Classes de estudo aprofundado das Escrituras e teologia para todas as idades.</p>
-              </div>
-            </div>
-            <div class="event-item">
-              <span class="event-time-badge">18:00</span>
-              <div class="event-details">
-                <h5>Culto Vespertino</h5>
-                <p>Celebração ao Senhor, louvor e pregação focada na edificação da família e da igreja.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="schedule-day-card reveal delay-2">
-          <div class="day-title">
-            <i class="far fa-calendar"></i>
-            <span>Terça-feira</span>
-          </div>
-          <div class="events-list">
-            <div class="event-item">
-              <span class="event-time-badge">15:00</span>
-              <div class="event-details">
-                <h5>SAF Bem Viver</h5>
-                <p>Sociedade Auxiliadora Feminina: Reunião das irmãs para comunhão, oração e estudo.</p>
-              </div>
-            </div>
-            <div class="event-item">
-              <span class="event-time-badge special">Mensal</span>
-              <div class="event-details">
-                <h5>Pão na Rua</h5>
-                <p>Ação social e evangelística realizada sempre na <strong>segunda terça-feira do mês</strong>.</p>
-              </div>
-            </div>
-            <div class="event-item">
-              <span class="event-time-badge special">Noite</span>
-              <div class="event-details">
-                <h5>Ensaio do Grupo de Música</h5>
-                <p>Preparação e ensaio técnico dos músicos para os cultos públicos da igreja.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="schedule-day-card reveal delay-3">
-          <div class="day-title">
-            <i class="far fa-calendar"></i>
-            <span>Quarta-feira</span>
-          </div>
-          <div class="events-list">
-            <div class="event-item">
-              <span class="event-time-badge">20:00</span>
-              <div class="event-details">
-                <h5>Reunião de Oração</h5>
-                <p>Clamor comunitário, intercessão pelas famílias, pelos enfermos e pela obra missionária.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="schedule-day-card reveal delay-1">
-          <div class="day-title">
-            <i class="far fa-calendar"></i>
-            <span>Quinta</span>
-          </div>
-          <div class="events-list">
-            <div class="event-item">
-              <span class="event-time-badge">19:30</span>
-              <div class="event-details">
-                <h5>Quinta em Casa</h5>
-                <p>Reuniões familiares nos lares com a visita pastoral para aconselhamento e edificação.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="schedule-day-card reveal delay-2">
-          <div class="day-title">
-            <i class="far fa-calendar"></i>
-            <span>Sexta</span>
-          </div>
-          <div class="events-list">
-            <div class="event-item">
-              <span class="event-time-badge">Sexta</span>
-              <div class="event-details">
-                <h5>Ensaio do Coral</h5>
-                <p>Ensaio do coral da igreja focado na preparação de cânticos sacros tradicionais.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="schedule-day-card reveal delay-3">
-          <div class="day-title">
-            <i class="far fa-calendar"></i>
-            <span>Sábado</span>
-          </div>
-          <div class="events-list">
-            <div class="event-item">
-              <span class="event-time-badge">12:00</span>
-              <div class="event-details">
-                <h5>Juntos</h5>
-                <p>Um almoço coletivo para a comunhão e louvor <strong>a cada dois meses</strong>.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SEÇÃO PROJETOS -->
-  <section id="projetos">
-    <div class="container reveal">
-      <h2 class="section-title">Nossos Projetos</h2>
-      <p class="section-subtitle">Conheça as iniciativas práticas de amor ao próximo e propagação do Evangelho que desenvolvemos.</p>
-      
-      <div class="projects-grid">
-        <!-- Projeto Pão na Rua -->
-        <div class="project-card reveal delay-1">
-          <div class="project-logo-wrapper">
-            <img src="/assets/img/Logo_paonarua.png" alt="Logo Projeto Pão na Rua" class="project-logo">
-          </div>
-          <div class="project-content">
-            <span class="project-tag">Ação Social & Evangelística</span>
-            <h4>Pão na Rua</h4>
-            <p>Iniciativa de ação social e evangelística focada em entregar refeições e a Palavra de Deus para pessoas em situação de rua. As ações acontecem mensalmente, todas as <strong>terças-feiras do mês</strong>.</p>
-            
-            <a href="/projetos/pao-na-rua.html" class="project-btn">
-              Conhecer o Projeto e Participar
-              <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- Projeto O Amor de Cristo Expresso em Inglês -->
-        <div class="project-card reveal delay-2">
-          <div class="project-logo-wrapper">
-            <img src="/assets/img/logo_OACEI_IPCF.jpeg" alt="Logo Projeto O Amor de Cristo Expresso em Inglês" class="project-logo">
-          </div>
-          <div class="project-content">
-            <span class="project-tag">Educação & Missão</span>
-            <h4>O Amor de Cristo Expresso em Inglês</h4>
-            <p>Projeto focado no ensino gratuito de inglês como ferramenta de capacitação da comunidade e aproximação com os valores cristãos, oferecendo novas oportunidades e crescimento cultural.</p>
-            
-            <a href="/projetos/amor-de-cristo-em-ingles.html" class="project-btn">
-              Conhecer o Projeto e Participar
-              <i class="fas fa-arrow-right"></i>
+          <div class="hero-actions">
+            <a href="https://maps.app.goo.gl/tm8EVcg4wsBbrC4g7" target="_blank" rel="noopener noreferrer"
+              class="btn btn-primary">
+              <svg class="icon" aria-hidden="true">
+                <use href="assets/icons/sprite.svg#i-map-pin"></use>
+              </svg>
+              Como Chegar / Localização
             </a>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="ministerio">
-    <div class="container reveal">
-      <h2 class="section-title">Ministérios e Liderança</h2>
-      <p class="section-subtitle">Nossa comunidade serve junta. Veja onde você pode se conectar e como nossa igreja é organizada.</p>
-      
-      <div class="ministry-grid">
-        <div class="ministry-card reveal delay-1">
-          <div class="ministry-img-placeholder">
-            <i class="fas fa-scroll icon-xl"></i>
+    <section id="sobre-nos" aria-labelledby="sobre-title">
+      <div class="container">
+        <h2 class="section-title" id="sobre-title">Sobre Nós</h2>
+        <p class="section-subtitle">Conheça um pouco da nossa história, herança teológica e o desejo de glorificar a
+          Deus em Recife.</p>
+
+        <div class="about-wrapper">
+          <div class="about-text">
+            <p>A Igreja Presbiteriana em Casa Forte é uma igreja de fé comprometida com as Sagradas Escrituras e com a
+              rica tradição teológica reformada. Firmados na graça soberana de Deus, buscamos ser um farol de esperança
+              e verdade em nosso bairro e em toda a cidade do Recife.</p>
+            <p>Aqui, você encontrará uma família espiritual focada na pregação expositiva da Palavra, no louvor
+              reverente, na oração fervorosa e no cuidado mútuo. Nosso alvo é glorificar ao Deus Trino — Pai, Filho e
+              Espírito Santo —, edificar os santos por meio de Sua Palavra (nossa única regra de fé e prática) e nos
+              aproximar dos caídos e dos necessitados de Cristo.</p>
           </div>
-          <div class="ministry-content">
-            <h4>Conselho da Igreja</h4>
-            <p>Composto pelo pastor e presbíteros eleitos, responsável pelo governo espiritual, doutrinário e pastoral da comunidade local.</p>
+          <div class="about-image-wrapper reveal">
+            <div class="about-image-placeholder">
+              <picture>
+                <source type="image/avif"
+                  srcset="assets/img/opt/igreja-480.avif 480w, assets/img/opt/igreja-720.avif 720w, assets/img/opt/igreja-960.avif 960w"
+                  sizes="(min-width: 992px) 520px, 90vw">
+                <source type="image/webp"
+                  srcset="assets/img/opt/igreja-480.webp 480w, assets/img/opt/igreja-720.webp 720w, assets/img/opt/igreja-960.webp 960w"
+                  sizes="(min-width: 992px) 520px, 90vw">
+                <img src="assets/img/ipcf_img.jpg"
+                  alt="Membros e famílias da igreja reunidos no salão do templo, sorrindo e acenando" width="1440"
+                  height="856" loading="lazy" decoding="async">
+              </picture>
+            </div>
           </div>
         </div>
 
-        <div class="ministry-card reveal delay-2">
-          <div class="ministry-img-placeholder">
-            <i class="fas fa-hand-holding-heart icon-xl"></i>
+        <div class="mvv-grid">
+          <div class="mvv-card reveal">
+            <div class="mvv-icon">
+              <svg class="icon" aria-hidden="true">
+                <use href="assets/icons/sprite.svg#i-book-open-text"></use>
+              </svg>
+            </div>
+            <h3>Nossa Missão</h3>
+            <p>Glorificar a Deus por meio do culto bíblico, edificando os crentes na sã doutrina e espalhando o
+              Evangelho a toda criatura.</p>
           </div>
-          <div class="ministry-content">
-            <h4>Junta Diaconal</h4>
-            <p>Oficiais vocacionados para o serviço de misericórdia, apoio à ordem dos cultos, manutenção do templo e auxílio aos necessitados.</p>
-          </div>
-        </div>
 
-        <div class="ministry-card reveal delay-3">
-          <div class="ministry-img-placeholder">
-            <i class="fas fa-children icon-xl"></i>
+          <div class="mvv-card reveal">
+            <div class="mvv-icon">
+              <svg class="icon" aria-hidden="true">
+                <use href="assets/icons/sprite.svg#i-eye"></use>
+              </svg>
+            </div>
+            <h3>Nossa Visão</h3>
+            <p>Ser uma igreja relevante, reconhecida pelo amor fraternal, maturidade teológica e impacto transformador
+              na sociedade.</p>
           </div>
-          <div class="ministry-content">
-            <h4>Infantil</h4>
-            <p>Dedicado a ensinar a Bíblia de forma didática e amorosa para os pequenos crescerem nos caminhos do Senhor.</p>
-          </div>
-        </div>
 
-        <div class="ministry-card reveal delay-4">
-          <div class="ministry-img-placeholder">
-            <i class="fas fa-users icon-xl"></i>
-          </div>
-          <div class="ministry-content">
-            <h4>Jovens (UMP)</h4>
-            <p>Espaço para fortalecer a fé, debater temas atuais à luz das Escrituras e cultivar amizades saudáveis.</p>
-          </div>
-        </div>
-
-        <div class="ministry-card reveal delay-5">
-          <div class="ministry-img-placeholder">
-            <i class="fas fa-music icon-xl"></i>
-          </div>
-          <div class="ministry-content">
-            <h4>Música & Coral</h4>
-            <p>Grupo voltado para a condução do louvor público com excelência técnica, reverência e fidelidade teológica.</p>
-          </div>
-        </div>
-
-        <div class="ministry-card reveal delay-6">
-          <div class="ministry-img-placeholder">
-            <i class="fa-solid fa-hands-holding-child icon-xl"></i>
-          </div>
-          <div class="ministry-content">
-            <h4>Ação Social</h4>
-            <p>Braço de misericórdia da igreja focado em amparar os necessitados e levar o amor prático de Cristo às ruas.</p>
+          <div class="mvv-card reveal">
+            <div class="mvv-icon">
+              <svg class="icon" aria-hidden="true">
+                <use href="assets/icons/sprite.svg#i-heart"></use>
+              </svg>
+            </div>
+            <h3>Nossos Valores</h3>
+            <p>Fidelidade às Escrituras, supremacia de Cristo, centralidade da graça, comunhão sincera e integridade
+              moral na vida diária.</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="contato">
-    <div class="container reveal">
-      <h2 class="section-title">Contato</h2>
-      <p class="section-subtitle">Queremos falar com você. Venha nos visitar ou mande uma mensagem!</p>
-      
-      <div class="contact-wrapper">
-        <div class="contact-info">
-          <h4>Fale Conosco</h4>
-          <p>Se você precisa de uma visita pastoral, aconselhamento ou quer enviar um pedido de oração, utilize nossos canais oficiais.</p>
-          
-          <div class="contact-links-list">
-            <div class="contact-link-item">
-              <i class="fas fa-phone"></i>
-              <span>(81) 98888-8888 (Secretaria)</span>
-            </div>
-            <div class="contact-link-item">
-              <i class="fas fa-envelope"></i>
-              <span>contato@ipbcasaforte.org.br</span>
-            </div>
-            <div class="contact-link-item">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>Estrada do Encanamento, 1210, Casa Forte, Recife - PE</span>
+    <section id="programacao" aria-labelledby="programacao-title">
+      <div class="container">
+        <h2 class="section-title" id="programacao-title">Programação</h2>
+        <p class="section-subtitle">Participe das nossas atividades semanais. Será uma alegria ter você e sua família
+          conosco.</p>
+
+        <div class="schedule-grid">
+          <div class="schedule-day-card reveal">
+            <h3 class="day-title">
+              <svg class="icon" aria-hidden="true">
+                <use href="assets/icons/sprite.svg#i-calendar"></use>
+              </svg>
+              <span>Domingo</span>
+            </h3>
+            <div class="events-list">
+              <div class="event-item">
+                <span class="event-time-badge">09:00</span>
+                <div class="event-details">
+                  <h4>Culto Matutino</h4>
+                  <p>Momento comunitário de adoração, oração e exposição da Palavra de Deus.</p>
+                </div>
+              </div>
+              <div class="event-item">
+                <span class="event-time-badge">10:45</span>
+                <div class="event-details">
+                  <h4>Escola Bíblica Dominical (EBD)</h4>
+                  <p>Classes de estudo aprofundado das Escrituras e teologia para todas as idades.</p>
+                </div>
+              </div>
+              <div class="event-item">
+                <span class="event-time-badge">18:00</span>
+                <div class="event-details">
+                  <h4>Culto Vespertino</h4>
+                  <p>Celebração ao Senhor, louvor e pregação focada na edificação da família e da igreja.</p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="contact-socials">
-          <h4>Nossas Redes Sociais</h4>
-          <p>Fique por dentro das nossas transmissões ao vivo e avisos semanais.</p>
-          <div class="social-icons-grid">
-            <a href="https://www.instagram.com/ipcasaforte?igsh=cThhZWlwNXdhZHJo" target="_blank" rel="noopener noreferrer" class="social-btn">
-              <i class="fab fa-instagram icon-lg"></i>
-            </a>
-            <a href="https://youtube.com/@ipcasaforte3548?si=Sj3bOWgA8j2QB4OT" target="_blank" rel="noopener noreferrer" class="social-btn">
-              <i class="fab fa-youtube icon-lg"></i>
-            </a>
+          <div class="schedule-day-card reveal">
+            <h3 class="day-title">
+              <svg class="icon" aria-hidden="true">
+                <use href="assets/icons/sprite.svg#i-calendar"></use>
+              </svg>
+              <span>Terça-feira</span>
+            </h3>
+            <div class="events-list">
+              <div class="event-item">
+                <span class="event-time-badge">15:00</span>
+                <div class="event-details">
+                  <h4>SAF Bem Viver</h4>
+                  <p>Sociedade Auxiliadora Feminina: Reunião das irmãs para comunhão, oração e estudo.</p>
+                </div>
+              </div>
+              <div class="event-item">
+                <span class="event-time-badge special">Mensal</span>
+                <div class="event-details">
+                  <h4>Pão na Rua</h4>
+                  <p>Ação social e evangelística realizada sempre na <strong>segunda terça-feira do mês</strong>.</p>
+                </div>
+              </div>
+              <div class="event-item">
+                <span class="event-time-badge special">Noite</span>
+                <div class="event-details">
+                  <h4>Ensaio do Grupo de Música</h4>
+                  <p>Preparação e ensaio técnico dos músicos para os cultos públicos da igreja.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="schedule-day-card reveal">
+            <h3 class="day-title">
+              <svg class="icon" aria-hidden="true">
+                <use href="assets/icons/sprite.svg#i-calendar"></use>
+              </svg>
+              <span>Quarta-feira</span>
+            </h3>
+            <div class="events-list">
+              <div class="event-item">
+                <span class="event-time-badge">20:00</span>
+                <div class="event-details">
+                  <h4>Reunião de Oração</h4>
+                  <p>Clamor comunitário, intercessão pelas famílias, pelos enfermos e pela obra missionária.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="schedule-day-card reveal">
+            <h3 class="day-title">
+              <svg class="icon" aria-hidden="true">
+                <use href="assets/icons/sprite.svg#i-calendar"></use>
+              </svg>
+              <span>Quinta</span>
+            </h3>
+            <div class="events-list">
+              <div class="event-item">
+                <span class="event-time-badge">19:30</span>
+                <div class="event-details">
+                  <h4>Quinta em Casa</h4>
+                  <p>Reuniões familiares nos lares com a visita pastoral para aconselhamento e edificação.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="schedule-day-card reveal">
+            <h3 class="day-title">
+              <svg class="icon" aria-hidden="true">
+                <use href="assets/icons/sprite.svg#i-calendar"></use>
+              </svg>
+              <span>Sexta</span>
+            </h3>
+            <div class="events-list">
+              <div class="event-item">
+                <span class="event-time-badge">Sexta</span>
+                <div class="event-details">
+                  <h4>Ensaio do Coral</h4>
+                  <p>Ensaio do coral da igreja focado na preparação de cânticos sacros tradicionais.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="schedule-day-card reveal">
+            <h3 class="day-title">
+              <svg class="icon" aria-hidden="true">
+                <use href="assets/icons/sprite.svg#i-calendar"></use>
+              </svg>
+              <span>Sábado</span>
+            </h3>
+            <div class="events-list">
+              <div class="event-item">
+                <span class="event-time-badge">12:00</span>
+                <div class="event-details">
+                  <h4>Juntos</h4>
+                  <p>Um almoço coletivo para a comunhão e louvor <strong>a cada dois meses</strong>.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- SEÇÃO PROJETO -->
+    <section id="projetos" aria-labelledby="projetos-title">
+      <div class="container">
+        <h2 class="section-title" id="projetos-title">Conheça Nosso Projeto</h2>
+        <p class="section-subtitle">Conheça nossa iniciativa prática de amor ao próximo e propagação do Evangelho através do serviço à cidade.</p>
+
+        <div class="projects-grid">
+          <!-- Projeto Pão na Rua -->
+          <article class="project-card reveal">
+            <div class="project-logo-wrapper">
+              <picture>
+                <source type="image/webp"
+                  srcset="assets/img/opt/pao-na-rua-320.webp 320w, assets/img/opt/pao-na-rua-640.webp 640w"
+                  sizes="240px">
+                <img src="assets/img/Logo_paonarua.png" alt="Logo Projeto Pão na Rua" class="project-logo" width="2000"
+                  height="2000" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <div class="project-content">
+              <span class="project-tag">Ação Social &amp; Evangelística</span>
+              <h3>Pão na Rua</h3>
+              <p>Iniciativa de ação social e evangelística focada em entregar refeições e a Palavra de Deus para pessoas
+                em situação de rua. As ações acontecem mensalmente, todas as <strong>terças-feiras do mês</strong>.</p>
+
+              <a href="projetos/pao-na-rua.html" class="project-btn">
+                Conhecer o Projeto e Participar
+                <svg class="icon" aria-hidden="true">
+                  <use href="assets/icons/sprite.svg#i-arrow-right"></use>
+                </svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="ministerio" aria-labelledby="ministerio-title">
+      <div class="container">
+        <h2 class="section-title" id="ministerio-title">Ministérios e Liderança</h2>
+        <p class="section-subtitle">Nossa comunidade serve junta. Veja onde você pode se conectar e como nossa igreja é
+          organizada.</p>
+
+        <div class="ministry-grid">
+          <article class="ministry-card reveal">
+            <div class="ministry-icon">
+              <svg class="icon" aria-hidden="true">
+                <use href="assets/icons/sprite.svg#i-scroll-text"></use>
+              </svg>
+            </div>
+            <div class="ministry-content">
+              <h3>Conselho da Igreja</h3>
+              <p>Composto pelo pastor e presbíteros eleitos, responsável pelo governo espiritual, doutrinário e pastoral
+                da comunidade local.</p>
+            </div>
+          </article>
+
+          <article class="ministry-card reveal">
+            <div class="ministry-icon">
+              <svg class="icon" aria-hidden="true">
+                <use href="assets/icons/sprite.svg#i-hand-heart"></use>
+              </svg>
+            </div>
+            <div class="ministry-content">
+              <h3>Junta Diaconal</h3>
+              <p>Oficiais vocacionados para o serviço de misericórdia, apoio à ordem dos cultos, manutenção do templo e
+                auxílio aos necessitados.</p>
+            </div>
+          </article>
+
+          <article class="ministry-card reveal">
+            <div class="ministry-icon">
+              <svg class="icon" aria-hidden="true">
+                <use href="assets/icons/sprite.svg#i-baby"></use>
+              </svg>
+            </div>
+            <div class="ministry-content">
+              <h3>Infantil</h3>
+              <p>Dedicado a ensinar a Bíblia de forma didática e amorosa para os pequenos crescerem nos caminhos do
+                Senhor.</p>
+            </div>
+          </article>
+
+          <article class="ministry-card reveal">
+            <div class="ministry-icon">
+              <svg class="icon" aria-hidden="true">
+                <use href="assets/icons/sprite.svg#i-users"></use>
+              </svg>
+            </div>
+            <div class="ministry-content">
+              <h3>Jovens (UMP)</h3>
+              <p>Espaço para fortalecer a fé, debater temas atuais à luz das Escrituras e cultivar amizades saudáveis.
+              </p>
+            </div>
+          </article>
+
+          <article class="ministry-card reveal">
+            <div class="ministry-icon">
+              <svg class="icon" aria-hidden="true">
+                <use href="assets/icons/sprite.svg#i-music"></use>
+              </svg>
+            </div>
+            <div class="ministry-content">
+              <h3>Música &amp; Coral</h3>
+              <p>Grupo voltado para a condução do louvor público com excelência técnica, reverência e fidelidade
+                teológica.</p>
+            </div>
+          </article>
+
+          <article class="ministry-card reveal">
+            <div class="ministry-icon">
+              <svg class="icon" aria-hidden="true">
+                <use href="assets/icons/sprite.svg#i-heart-handshake"></use>
+              </svg>
+            </div>
+            <div class="ministry-content">
+              <h3>Ação Social</h3>
+              <p>Braço de misericórdia da igreja focado em amparar os necessitados e levar o amor prático de Cristo às
+                ruas.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" aria-labelledby="contato-title">
+      <div class="container">
+        <h2 class="section-title" id="contato-title">Contato</h2>
+        <p class="section-subtitle">Queremos falar com você. Venha nos visitar ou mande uma mensagem!</p>
+
+        <div class="contact-wrapper reveal">
+          <div class="contact-info">
+            <h3>Fale Conosco</h3>
+            <p>Se você precisa de uma visita pastoral, aconselhamento ou quer enviar um pedido de oração, utilize nossos
+              canais oficiais.</p>
+
+            <address class="contact-links-list">
+              <a class="contact-link-item" href="tel:+5581988888888">
+                <svg class="icon" aria-hidden="true">
+                  <use href="assets/icons/sprite.svg#i-phone"></use>
+                </svg>
+                <span>(81) 98888-8888 (Secretaria)</span>
+              </a>
+              <a class="contact-link-item" href="mailto:contato@ipbcasaforte.org.br">
+                <svg class="icon" aria-hidden="true">
+                  <use href="assets/icons/sprite.svg#i-mail"></use>
+                </svg>
+                <span>contato@ipbcasaforte.org.br</span>
+              </a>
+              <a class="contact-link-item" href="https://maps.app.goo.gl/tm8EVcg4wsBbrC4g7" target="_blank"
+                rel="noopener noreferrer">
+                <svg class="icon" aria-hidden="true">
+                  <use href="assets/icons/sprite.svg#i-map-pin"></use>
+                </svg>
+                <span>Estrada do Encanamento, 1210, Casa Forte, Recife - PE</span>
+              </a>
+            </address>
+          </div>
+
+          <div class="contact-socials">
+            <h3>Nossas Redes Sociais</h3>
+            <p>Fique por dentro das nossas transmissões ao vivo e avisos semanais.</p>
+            <div class="social-icons-grid">
+              <a href="https://www.instagram.com/ipcasaforte?igsh=cThhZWlwNXdhZHJo" target="_blank"
+                rel="noopener noreferrer" class="social-btn"
+                aria-label="Instagram da Igreja Presbiteriana em Casa Forte">
+                <svg class="icon" aria-hidden="true">
+                  <use href="assets/icons/sprite.svg#i-instagram"></use>
+                </svg>
+              </a>
+              <a href="https://youtube.com/@ipcasaforte3548?si=Sj3bOWgA8j2QB4OT" target="_blank"
+                rel="noopener noreferrer" class="social-btn"
+                aria-label="Canal da Igreja Presbiteriana em Casa Forte no YouTube">
+                <svg class="icon" aria-hidden="true">
+                  <use href="assets/icons/sprite.svg#i-youtube"></use>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
     <div class="container footer-inner">
@@ -421,6 +587,7 @@
     </div>
   </footer>
 
-  <script src="/js/script.js"></script>
+  <script src="js/script.min.js" defer></script>
 </body>
+
 </html>

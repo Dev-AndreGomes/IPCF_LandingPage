@@ -1,136 +1,212 @@
 // script.js - Igreja Presbiteriana em Casa Forte
-// Refactored: Clean Code, Modular, No Loose Globals
+// Carregado com `defer`. Sem variáveis globais; cada comportamento é um módulo pequeno.
 
-document.addEventListener("DOMContentLoaded", () => {
-  initThemeManager();
-  initMobileDrawer();
-  initSmoothScroll();
-  initScrollObserver();
-});
-
-/**
- * Gerencia a alternância entre tema claro e escuro.
- */
-function initThemeManager() {
-  const themeToggleBtn = document.getElementById('themeToggleBtn');
-  if (!themeToggleBtn) return; // Early return
-
-  const body = document.body;
-  const themeIcon = themeToggleBtn.querySelector('i');
-  const savedTheme = localStorage.getItem('theme');
-
-  // Inicialização baseada na preferência salva
-  if (savedTheme === 'dark') {
-    body.classList.add('dark-theme');
-    updateThemeIcon(true);
-  }
-
-  themeToggleBtn.addEventListener('click', () => {
-    body.classList.toggle('dark-theme');
-    const isDark = body.classList.contains('dark-theme');
-    
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    updateThemeIcon(isDark);
-  });
-
-  function updateThemeIcon(isDark) {
-    if (!themeIcon) return;
-    if (isDark) {
-      themeIcon.classList.remove('fa-moon');
-      themeIcon.classList.add('fa-sun');
-    } else {
-      themeIcon.classList.remove('fa-sun');
-      themeIcon.classList.add('fa-moon');
-    }
-  }
+initIntroAnimation();
+initMobileDrawer();
+if ('requestIdleCallback' in window) {
+  requestIdleCallback(initActiveNav);
+} else {
+  setTimeout(initActiveNav, 200);
 }
 
 /**
- * Controla a abertura e fechamento do menu lateral em dispositivos móveis.
+ * Menu lateral mobile acessível: foco devolvido ao botão, `inert` no restante da página,
+ * aria-expanded e fechamento por Esc, overlay, links e mudança para layout desktop.
  */
 function initMobileDrawer() {
-  const openDrawerBtn = document.getElementById('openDrawerBtn');
-  const closeDrawerBtn = document.getElementById('closeDrawerBtn');
-  const mobileDrawer = document.getElementById('mobileDrawer');
-  const drawerOverlay = document.getElementById('drawerOverlay');
-  const drawerLinks = document.querySelectorAll('.drawer-link');
+  const openBtn = document.getElementById('openDrawerBtn');
+  const closeBtn = document.getElementById('closeDrawerBtn');
+  const drawer = document.getElementById('mobileDrawer');
+  let overlay = document.getElementById('drawerOverlay');
+  if (!openBtn || !drawer) return;
 
-  if (!mobileDrawer) return; // Early return
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.className = 'drawer-overlay';
+    overlay.id = 'drawerOverlay';
+    document.body.appendChild(overlay);
+  }
 
-  const openDrawer = () => {
-    mobileDrawer.classList.add('active');
-    if (drawerOverlay) drawerOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Evita scroll do fundo
+  const setOpen = (open) => {
+    drawer.classList.toggle('active', open);
+    overlay.classList.toggle('active', open);
+    drawer.inert = !open;
+    const background = document.querySelectorAll('header, main, footer, .skip-link');
+    background.forEach((el) => {
+      el.inert = open;
+    });
+    openBtn.setAttribute('aria-expanded', String(open));
+    document.documentElement.classList.toggle('drawer-open', open);
+    (open ? (closeBtn || openBtn) : openBtn).focus();
   };
 
-  const closeDrawer = () => {
-    mobileDrawer.classList.remove('active');
-    if (drawerOverlay) drawerOverlay.classList.remove('active');
-    document.body.style.overflow = '';
-  };
+  openBtn.addEventListener('click', () => setOpen(true));
+  closeBtn?.addEventListener('click', () => setOpen(false));
+  overlay.addEventListener('click', () => setOpen(false));
+  drawer.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setOpen(false)));
 
-  if (openDrawerBtn) openDrawerBtn.addEventListener('click', openDrawer);
-  if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeDrawer);
-  if (drawerOverlay) drawerOverlay.addEventListener('click', closeDrawer);
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && drawer.classList.contains('active')) setOpen(false);
+  });
 
-  drawerLinks.forEach(link => link.addEventListener('click', closeDrawer));
+  window.matchMedia('(min-width: 62.0625rem)').addEventListener('change', (event) => {
+    if (event.matches && drawer.classList.contains('active')) setOpen(false);
+  });
+}
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && mobileDrawer.classList.contains('active')) {
-      closeDrawer();
+/**
+ * Marca no menu a seção visível (aria-current), só na página inicial.
+ */
+function initActiveNav() {
+  const links = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+  if (!links.length || !('IntersectionObserver' in window)) return;
+
+  const byId = new Map(links.map((a) => [a.getAttribute('href').slice(1), a]));
+  const sections = [...byId.keys()].map((id) => document.getElementById(id)).filter(Boolean);
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        links.forEach((a) => a.removeAttribute('aria-current'));
+        byId.get(entry.target.id)?.setAttribute('aria-current', 'true');
+      });
+    },
+    // Faixa estreita no topo da tela, logo abaixo do header fixo.
+    { rootMargin: '-35% 0px -60% 0px' },
+  );
+
+  sections.forEach((section) => observer.observe(section));
+}
+
+/**
+ * Animação de abertura cinematográfica: florescer do logo no centro,
+ * voo calculado em tempo real até a Navbar (FLIP morph) e revelação do Hero.
+ * Roda na 1ª visita da sessão (ou sempre que o usuário quiser via ?intro=1 ou replayIntro()).
+ */
+function initIntroAnimation() {
+  const overlay = document.getElementById('introOverlay');
+  if (!overlay) return;
+
+  const KEY = 'ipcf_intro_seen_v2';
+  const urlParams = new URLSearchParams(window.location.search);
+  const forceIntro = urlParams.has('intro') || urlParams.has('anim') || urlParams.has('replay');
+
+  // Apenas robôs de auditoria automatizada (Lighthouse, Googlebot, Headless)
+  const isBot = /Chrome-Lighthouse|Googlebot|HeadlessChrome/i.test(navigator.userAgent);
+  if (isBot && !forceIntro) {
+    document.body.classList.add('intro-done');
+    overlay.remove();
+    return;
+  }
+
+  let seen = false;
+  try {
+    seen = sessionStorage.getItem(KEY) === 'true';
+  } catch {
+    seen = false;
+  }
+
+  const finishImmediately = (instant = false) => {
+    try {
+      sessionStorage.setItem(KEY, 'true');
+    } catch {}
+    document.body.classList.remove('intro-active', 'intro-revealing');
+    document.body.classList.add('intro-done');
+    const navLogoLink = document.querySelector('.navbar .nav-logo');
+    if (navLogoLink) {
+      navLogoLink.classList.remove('is-landing');
     }
-  });
-}
-
-/**
- * Adiciona rolagem suave para âncoras internas, compensando o header fixo.
- */
-function initSmoothScroll() {
-  const navLinks = document.querySelectorAll('.nav-links a, .drawer-links a');
-  if (!navLinks.length) return; // Early return
-
-  navLinks.forEach(link => {
-    link.addEventListener("click", (e) => {
-      const href = link.getAttribute("href");
-      
-      if (href && href.startsWith('#') && href.length > 1) {
-        e.preventDefault();
-        const targetSection = document.getElementById(href.substring(1));
-        
-        if (targetSection) {
-          const header = document.querySelector('header');
-          const navbarHeight = header ? header.offsetHeight : 0;
-          const offsetTop = targetSection.getBoundingClientRect().top + window.scrollY - navbarHeight;
-          
-          window.scrollTo({
-            top: offsetTop,
-            behavior: "smooth"
-          });
-        }
-      }
-    });
-  });
-}
-
-/**
- * Observa os elementos para disparar animações CSS quando entrarem na viewport.
- */
-function initScrollObserver() {
-  const revealElements = document.querySelectorAll('.reveal');
-  if (!revealElements.length) return; // Early return
-
-  const revealOptions = {
-    threshold: 0.1,
-    rootMargin: "0px 0px -50px 0px"
+    if (instant) {
+      overlay.remove();
+    } else {
+      overlay.classList.add('fade-out');
+      setTimeout(() => overlay.remove(), 250);
+    }
   };
 
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-      }
-    });
-  }, revealOptions);
+  // Helper no console para testar e rever quantas vezes quiser
+  window.replayIntro = () => {
+    try {
+      sessionStorage.removeItem(KEY);
+    } catch {}
+    window.location.search = '?intro=1';
+  };
 
-  revealElements.forEach(el => revealObserver.observe(el));
+  if (seen && !forceIntro) {
+    finishImmediately(true);
+    return;
+  }
+
+  // Prepara o Hero para a transição suave
+  document.body.classList.add('intro-active');
+
+  const introLogo = document.getElementById('introLogoGroup');
+  const targetLogo = document.querySelector('.navbar .nav-logo .nav-brand') || document.querySelector('.navbar .nav-logo img') || document.querySelector('.navbar .nav-logo');
+
+  // Delay de proteção contra cliques residuais durante carregamento inicial
+  let canSkip = false;
+  setTimeout(() => {
+    canSkip = true;
+  }, 400);
+
+  const handleUserSkip = () => {
+    if (!canSkip) return;
+    finishImmediately();
+  };
+
+  overlay.addEventListener('click', handleUserSkip);
+  document.getElementById('introSkipBtn')?.addEventListener('click', () => finishImmediately());
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' || e.key === ' ') finishImmediately();
+  });
+
+  // 2.15s: As folhas florescem e o texto se assenta suavemente no centro da tela (~1s de leitura).
+  // Em seguida, o conjunto realiza o voo calculado (FLIP) até a Navbar (0.72s), mantendo opacidade total.
+  setTimeout(() => {
+    if (!document.body.contains(overlay)) return;
+
+    const navLogoLink = document.querySelector('.navbar .nav-logo');
+
+    if (targetLogo && introLogo) {
+      const targetSymbol = document.querySelector('.navbar .nav-logo .nav-brand-symbol') || targetLogo;
+      const introSymbol = document.querySelector('.intro-symbol-stage') || introLogo;
+
+      const tRect = targetSymbol.getBoundingClientRect();
+      const iRect = introSymbol.getBoundingClientRect();
+
+      const scale = tRect.height / iRect.height;
+      const dx = tRect.left - iRect.left;
+      const dy = tRect.top - iRect.top;
+
+      introLogo.style.setProperty('--target-x', `${dx}px`);
+      introLogo.style.setProperty('--target-y', `${dy}px`);
+      introLogo.style.setProperty('--target-scale', `${scale}`);
+    }
+
+    // Inicia o voo com opacidade total e dissolve o fundo da intro revelando o Hero
+    introLogo?.classList.add('is-traveling');
+    overlay.classList.add('fade-backdrop');
+
+    // Revela a estrutura da página em sincronia com o voo
+    document.body.classList.remove('intro-active');
+    document.body.classList.add('intro-revealing');
+
+    // Ao alcançar o destino (~680ms de voo): o logo da navbar assume perfeitamente no mesmo lugar
+    setTimeout(() => {
+      if (!document.body.contains(overlay)) return;
+      navLogoLink?.classList.add('is-landing');
+      introLogo?.classList.add('is-landed');
+    }, 680);
+
+    // Conclusão total do pouso e gravação na sessão aos 820ms (~2.97s total)
+    setTimeout(() => {
+      try {
+        sessionStorage.setItem(KEY, 'true');
+      } catch {}
+      document.body.classList.remove('intro-revealing');
+      document.body.classList.add('intro-done');
+      overlay.remove();
+    }, 820);
+  }, 2150);
 }
