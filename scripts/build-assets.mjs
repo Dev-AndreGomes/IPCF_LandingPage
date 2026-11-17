@@ -2,7 +2,7 @@
 // Uso: npm run assets
 // As saídas ficam versionadas no repositório; este script só precisa rodar quando
 // uma imagem de origem mudar. Os arquivos originais em assets/img NUNCA são alterados.
-import { mkdir, readFile, writeFile, copyFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile, copyFile, rm } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import sharp from 'sharp';
@@ -12,16 +12,17 @@ const IMG = path.join(ROOT, 'assets/img');
 const OUT = path.join(IMG, 'opt');
 const NM = path.join(ROOT, 'node_modules');
 
+await rm(OUT, { recursive: true, force: true });
 await mkdir(OUT, { recursive: true });
 
 /* ---------- Imagens responsivas (WebP + AVIF opcional) ---------- */
 // trim: remove margem transparente do logo para ele ocupar o espaço certo no layout.
 const jobs = [
-  { src: 'hero_ipcf_img.jpg', name: 'hero', widths: [640, 960, 1280], avif: true, quality: 72 },
-  { src: 'ipcf_img.jpg', name: 'igreja', widths: [480, 720, 960], avif: true, quality: 74 },
-  { src: 'Logo_paonarua.png', name: 'pao-na-rua', widths: [320, 640], avif: false, quality: 82 },
-  { src: 'logo_OACEI_IPCF.jpeg', name: 'oacei', widths: [320, 640], avif: false, quality: 82 },
-  { src: 'IPCF_header.png', name: 'logo', widths: [200, 400], avif: false, quality: 90, trim: true },
+  { src: 'hero_ipcf_img.jpg', name: 'hero', widths: [480, 640, 768, 960, 1280], avif: true, quality: 66, avifQuality: 34 },
+  { src: 'ipcf_img.jpg', name: 'igreja', widths: [380, 520, 680, 960], avif: true, quality: 68, avifQuality: 36 },
+  { src: 'Logo_paonarua.png', name: 'pao-na-rua', widths: [240, 320, 480, 640], avif: true, quality: 78, avifQuality: 45 },
+  { src: 'logo_OACEI_IPCF.jpeg', name: 'oacei', widths: [240, 320, 480, 640], avif: true, quality: 78, avifQuality: 45 },
+  { src: 'IPCF_header.png', name: 'logo', widths: [200, 400], avif: false, quality: 86, trim: true },
 ];
 
 const report = {};
@@ -43,7 +44,8 @@ for (const job of jobs) {
     report[job.name].files.push(path.basename(webp));
     if (job.avif) {
       const avif = path.join(OUT, `${job.name}-${w}.avif`);
-      await pipeline().avif({ quality: Math.max(40, job.quality - 28), effort: 6 }).toFile(avif);
+      const aq = job.avifQuality ?? Math.max(32, job.quality - 30);
+      await pipeline().avif({ quality: aq, effort: 6, chromaSubsampling: '4:2:0' }).toFile(avif);
       report[job.name].files.push(path.basename(avif));
     }
   }
@@ -55,10 +57,22 @@ await sharp(path.join(IMG, 'hero_ipcf_img.jpg'))
   .jpeg({ quality: 82, mozjpeg: true })
   .toFile(path.join(OUT, 'og-image.jpg'));
 
-/* ---------- Favicons / ícones de app a partir do logo existente ---------- */
+/* ---------- Símbolo da barra de navegação (responsivo AVIF/WebP/PNG) ---------- */
 const iconSrc = path.join(ROOT, 'assets/icons/IPCF_logo.png');
 const iconMeta = await sharp(iconSrc).metadata();
-report.IPCF_logo = { source: `${iconMeta.width}x${iconMeta.height}` };
+report.IPCF_logo = { source: `${iconMeta.width}x${iconMeta.height}`, navSymbol: [] };
+for (const w of [56, 84, 112]) {
+  const baseIcon = () => sharp(iconSrc).resize({ width: w, withoutEnlargement: true });
+  await baseIcon().avif({ quality: 45, effort: 6 }).toFile(path.join(ROOT, 'assets/icons', `nav-symbol-${w}.avif`));
+  await baseIcon().webp({ quality: 82, effort: 6, alphaQuality: 100 }).toFile(path.join(ROOT, 'assets/icons', `nav-symbol-${w}.webp`));
+  report.IPCF_logo.navSymbol.push(`nav-symbol-${w}.{avif,webp}`);
+}
+await sharp(iconSrc)
+  .resize({ width: 112, withoutEnlargement: true })
+  .png({ compressionLevel: 9, palette: true })
+  .toFile(path.join(ROOT, 'assets/icons/nav-symbol-112.png'));
+
+/* ---------- Favicons / ícones de app a partir do logo existente ---------- */
 for (const [file, size, bg] of [
   ['favicon-32.png', 32, null],
   ['icon-192.png', 192, null],

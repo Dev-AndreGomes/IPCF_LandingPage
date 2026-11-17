@@ -6,14 +6,14 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   Cross-Origin-Opener-Policy: same-origin
-  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-YQm/Fjj4p5z0eqZHXNYK2lL08H3v6XrZ4JRVR74UTeY='; style-src 'self' 'sha256-moMRF+7VWkPtvyyrWzfd5O/oNsWk3zZqqRwIptfaG60=' 'sha256-lLMiVXcIZ3gf8g89mQCyvfqQ/UcU8ps4gRIHltSVi8k='; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
 
-# Arquivos sem hash no nome: cache longo para mídia/fontes, curto para CSS/JS (atualizações chegam em até 1 dia).
+# Arquivos versionados ou estáticos com cache de 1 ano.
 /assets/*
-  Cache-Control: public, max-age=2592000
+  Cache-Control: public, max-age=31536000, immutable
 
 /css/*
-  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=31536000, immutable
 
 /js/*
-  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=31536000, immutable

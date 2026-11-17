@@ -1,0 +1,29 @@
+# Igreja Presbiteriana em Casa Forte (IPCF)
+
+> A Igreja Presbiteriana em Casa Forte (IPB Casa Forte) é uma igreja evangélica reformada em Recife (PE), localizada na Estrada do Encanamento, 1210, no bairro de Casa Forte. Comprometida com as Sagradas Escrituras, cultos dominicais às 09h e 18h, Escola Bíblica Dominical às 10h45, comunhão bíblica e serviço social à cidade através do projeto Pão na Rua.
+
+Filiada à Igreja Presbiteriana do Brasil (IPB), a comunidade atende moradores de Casa Forte, Casa Amarela, Parnamirim, Poço da Panela, Santana e toda a Zona Norte e cidade do Recife.
+
+- **Endereço:** Estrada do Encanamento, 1210, Casa Forte, Recife - PE, CEP 52070-015, Brasil
+- **Cultos de Domingo:** 09:00 (Culto Matutino), 10:45 (Escola Bíblica Dominical — EBD) e 18:00 (Culto Vespertino)
+- **Atividades Semanais:** Terça-feira às 15:00 (SAF Bem Viver) e noite (Ensaio do Grupo de Música); Quarta-feira às 20:00 (Reunião de Oração); Quinta-feira às 19:30 (Quinta em Casa); Sexta-feira (Ensaio do Coral); Sábado às 12:00 bimestral (Juntos)
+- **Projeto Social:** Pão na Rua — toda 2ª terça-feira do mês (preparo às 17h, saída às 19h30)
+- **E-mail:** contato@ipbcasaforte.org.br
+- **WhatsApp (Projeto Pão na Rua):** +55 81 9642-1551 (https://wa.me/558196421551)
+
+## Páginas Principais
+
+- [Página Inicial — Igreja Presbiteriana em Casa Forte](https://ipbcasaforte.vercel.app/): Visão geral da igreja em Recife, história e identidade reformada, missão, visão, valores, programação semanal completa, ministérios e localização.
+- [Projeto Pão na Rua](https://ipbcasaforte.vercel.app/projetos/pao-na-rua.html): Informações sobre a ação social e evangelística mensal que entrega refeições quentes e acolhimento a pessoas em situação de rua no Recife, incluindo como doar alimentos, ofertar via PIX ou participar como voluntário pelo WhatsApp.
+- [Contexto Completo para Agentes (llms-full.txt)](https://ipbcasaforte.vercel.app/llms-full.txt): Versão integral em Markdown com horários detalhados, ministérios, projeto social e respostas diretas para assistentes de IA e buscadores agênticos.
+
+## Canais Oficiais e Localização
+
+- [Localização no Google Maps](https://maps.app.goo.gl/tm8EVcg4wsBbrC4g7): Rota e mapa para Estrada do Encanamento, 1210, Casa Forte, Recife - PE.
+- [Instagram Oficial (@ipcasaforte)](https://www.instagram.com/ipcasaforte): Avisos semanais, agenda e vida comunitária.
+- [YouTube Oficial (@ipcasaforte3548)](https://youtube.com/@ipcasaforte3548): Transmissões ao vivo e pregações expositivas.
+
+## Optional
+
+- [Sitemap XML](https://ipbcasaforte.vercel.app/sitemap.xml): Índice estruturado de URLs públicas para rastreadores de busca.
+

@@ -1,4 +1,28 @@
+# Rastreamento aberto para buscadores tradicionais e agentes/buscadores de IA
 User-agent: *
 Allow: /
 
-Sitemap: https://SEU-DOMINIO.com.br/sitemap.xml
+# Buscadores e agentes de IA explicitamente bem-vindos
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Índice estruturado para agentes e LLMs: https://ipbcasaforte.vercel.app/llms.txt
+Sitemap: https://ipbcasaforte.vercel.app/sitemap.xml

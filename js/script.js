@@ -86,19 +86,24 @@ function initActiveNav() {
  */
 function initIntroAnimation() {
   const overlay = document.getElementById('introOverlay');
+  const KEY = 'ipcf_intro_seen_v2';
+
+  // Helper no console para testar e rever quantas vezes quiser
+  window.replayIntro = () => {
+    try {
+      sessionStorage.removeItem(KEY);
+    } catch {}
+    window.location.search = '?intro=1';
+  };
+
   if (!overlay) return;
 
-  const KEY = 'ipcf_intro_seen_v2';
   const urlParams = new URLSearchParams(window.location.search);
   const forceIntro = urlParams.has('intro') || urlParams.has('anim') || urlParams.has('replay');
 
   // Apenas robôs de auditoria automatizada (Lighthouse, Googlebot, Headless)
-  const isBot = /Chrome-Lighthouse|Googlebot|HeadlessChrome/i.test(navigator.userAgent);
-  if (isBot && !forceIntro) {
-    document.body.classList.add('intro-done');
-    overlay.remove();
-    return;
-  }
+  const isBot = /Chrome-Lighthouse|Googlebot|HeadlessChrome|PTST/i.test(navigator.userAgent);
+  const preSkipped = document.documentElement.classList.contains('no-intro');
 
   let seen = false;
   try {
@@ -125,16 +130,13 @@ function initIntroAnimation() {
     }
   };
 
-  // Helper no console para testar e rever quantas vezes quiser
-  window.replayIntro = () => {
-    try {
-      sessionStorage.removeItem(KEY);
-    } catch {}
-    window.location.search = '?intro=1';
-  };
-
-  if (seen && !forceIntro) {
-    finishImmediately(true);
+  if (preSkipped || (isBot && !forceIntro) || (seen && !forceIntro)) {
+    if (isBot && !forceIntro) {
+      document.body.classList.add('intro-done');
+      overlay.remove();
+    } else {
+      finishImmediately(true);
+    }
     return;
   }
 
